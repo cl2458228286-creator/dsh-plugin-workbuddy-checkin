@@ -19,16 +19,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
----
-
-Additional notice
-
-This plugin automates interactions with WorkBuddy's official activity
-endpoints on behalf of the user's own logged-in account. It is an unofficial
-community tool with no affiliation to Tencent or WorkBuddy.
-
-It does not decrypt credentials, does not bypass rate limits or risk controls,
-and does not fabricate task completion (the server validates real usage).
-Users are responsible for confirming that automated check-in is permitted by
-their account's terms of service.

@@ -28,7 +28,8 @@
     "INSTALL.md",
     "LICENSE",
     "PUBLISHING.md",
-    "SHARING.md"
+    "SHARING.md",
+    "NOTICE.md"
   ],
   "exports": {
     ".": {
