@@ -1,0 +1,21 @@
+# 依赖。安装后由 pnpm/npm 装进 node_modules
+node_modules/
+
+# 登录态（含完整凭据，绝不能提交）
+.browser-profile/
+*.cookies.json
+session-cookies.json
+
+# 运行产物
+logs/
+*.tgz
+*.log
+
+# 编辑器
+.vscode/
+.idea/
+.DS_Store
+
+# 临时文件
+*.tmp
+*.bak

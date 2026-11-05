@@ -1,0 +1,13 @@
+# ============================================================================
+# dsh-plugin-workbuddy-checkin 的 bundle patch
+# 把插件挂进 DSH 配置树。
+#
+# 规则（与 DSH 插件市场的要求一致）：
+#   - insert 里每行有 id（行标识，全局唯一）和 name（模块名）
+#   - id 那一行的行尾不能写注释，否则市场预检抓不到 entry ID
+#   - name 解析到本包的 lib/index.js
+# ============================================================================
+
+- insert:
+    - id: workbuddy-checkin
+      name: 'dsh-plugin-workbuddy-checkin'
