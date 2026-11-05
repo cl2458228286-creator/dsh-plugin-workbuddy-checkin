@@ -108,6 +108,7 @@ const ALLOWED = new Set([
   'www.dsh.so',             // 市场提交页
   'registry.npmjs.org',     // npm 发布源
   'registry.npmmirror.com', // 本机 ~/.npmrc 镜像，不会进发布包
+  'api.github.com',         // scripts/gh-promote.mjs 发布工具（不进发布包）
 ]);
 console.log('\n[G] 出站域名审计');
 for (const d of [...domains].sort()) {
