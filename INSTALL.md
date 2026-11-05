@@ -1,53 +1,70 @@
-# 安装
+# 安装（图形界面，真正的一键）
 
-## 一条命令
+不用命令行、不用管 profile 名。**两步。**
 
-```bash
-dsh plugin --profile <你的profile> add github:cl2458228286-creator/dsh-plugin-workbuddy-checkin
+## 第 1 步：复制这一行
+
+```
+https://github.com/cl2458228286-creator/dsh-plugin-workbuddy-checkin
 ```
 
-装完直接用，**不需要重启**（DSH 桌面端带 HMR，安装即生效）。
+## 第 2 步：粘贴进 DSH
 
-然后让 Agent 调一次 `workbuddy_login` 扫码登录，之后长期免登录。
+1. 打开 **DeepSeek Harness**
+2. 左下角 **设置** → **插件**
+3. 点 **添加插件**（Add plugin）
+4. 把上面那行 URL 粘进输入框
+5. 点确认
 
----
+装完**不用重启**，直接生效。
 
-## 其他安装方式
+## 第 3 步：登录一次（约 30 秒）
 
-| 方式 | 命令 |
-|---|---|
-| 本地目录 | `dsh plugin --profile <p> add /绝对路径/to/dsh-plugin-workbuddy-checkin` |
-| 发布包 | `dsh plugin --profile <p> add /绝对路径/to/dsh-plugin-workbuddy-checkin-1.0.0.tgz` |
-| npm（未发布） | `dsh plugin --profile <p> add dsh-plugin-workbuddy-checkin` |
+回到对话，对 Agent 说：
 
-本地路径**必须是绝对路径**，也可以写成 `file:D:\path\to\pkg`。
+> 登录 WorkBuddy 签到插件
+
+它会打开一个独立的 Chrome 窗口。你在里面完成 WorkBuddy 登录即可，脚本检测到成功会自动关窗。
+之后长期免登录。
 
 ---
 
 ## 前置条件
 
-| 依赖 | 说明 |
-|---|---|
-| **Google Chrome** | **必须**。插件用它保存登录态并调用官方接口 |
-| DSH ≥ 0.2.1-rc.1 | 插件用 `defineTool` 注册工具 |
-| pnpm | DSH 插件管理器内部用它装依赖，DSH 自带运行时通常已包含 |
+**需要 Google Chrome。** 没有装的话插件无法工作（它用 Chrome 保存登录态并调用官方接口）。
+
+---
+
+## 验证装好了
+
+对 Agent 说：
+
+> 看看我还有哪些 WorkBuddy 积分没领
+
+如果它调用了 `workbuddy_checkin_status` 并给出签到状态、连签天数、任务进度，就装好了。
+这个工具**只读**，不会领任何东西。
 
 ---
 
 ## 卸载
 
-```bash
-dsh plugin --profile <p> remove dsh-plugin-workbuddy-checkin
-```
+**设置** → **插件** → 找到 `dsh-plugin-workbuddy-checkin` → **卸载**。
 
-登录态目录 `~/.workbuddy-checkin` 不会自动删除，想彻底清干净手动删。
+登录态目录 `~/.workbuddy-checkin` 不会自动删除；想彻底清干净手动删掉。
 
 ---
 
-## 验证
+## 命令行方式（进阶，可选）
 
-```bash
-node scripts/install-verify.mjs
+DSH 桌面版自带命令行，路径是：
+
+```
+%LOCALAPPDATA%\..\..\software\deepseekharness\resources\app.asar
 ```
 
-从已安装副本加载插件、注册 3 个工具、真实调一次只读体检。看到 `install-verify 通过` 即装好。
+算了，这个路径因安装位置而异，不推荐。**用图形界面就好**，上面两步就够。
+
+> 如果你确实在用 `dsh` CLI（开发环境才装），命令是：
+> `dsh plugin --profile <你的profile> add github:cl2458228286-creator/dsh-plugin-workbuddy-checkin`
+> `--profile` 的值就是 `~/.dsh/profiles/` 下你实际在用的那个目录名（桌面端固定是 `desktop`）。
+> 但普通用户没有 `dsh` 命令，忽略这部分。

@@ -9,30 +9,37 @@ WorkBuddy 每日自动签到 / 领积分，做成一个 **DeepSeek Harness (DSH)
 
 ---
 
-## 安装（一条命令）
+## 安装（复制一下，粘贴两下）
 
-```bash
-dsh plugin --profile <你的profile> add github:cl2458228286-creator/dsh-plugin-workbuddy-checkin
+不用命令行、不用管什么 profile。**把下面这行复制走：**
+
+```
+https://github.com/cl2458228286-creator/dsh-plugin-workbuddy-checkin
 ```
 
-就这一条。装完直接用，**不需要重启**（DSH 桌面端带 HMR，装完即生效）。
+然后打开 **DeepSeek Harness** → 左下角 **设置** → **插件** → **添加插件** → 粘贴 → 确认。
 
-第一次用需要扫码登录一次（约 30 秒）：
+装完**不用重启**，直接生效。
 
-> 对 Agent 说「登录 WorkBuddy 签到插件」，它会打开一个独立的 Chrome 窗口。
-> 在那里面完成登录即可，脚本检测到成功会自动保存并关窗。之后长期免登录。
+<details>
+<summary>然后登录一次（约 30 秒）</summary>
+
+对 Agent 说「登录 WorkBuddy 签到插件」，它会打开一个独立的 Chrome 窗口。
+在里面完成登录即可，脚本检测到成功会自动保存并关窗。之后长期免登录。
 
 登录态在 `~/.workbuddy-checkin`，**别删**，删了要重登。
+</details>
 
 ### 前置条件
 
 | 依赖 | 说明 |
 |---|---|
 | **Google Chrome** | **必须**。插件用它保存登录态并调用接口，没有 Chrome 就无法工作 |
-| DSH ≥ 0.2.1-rc.1 | 插件用 `defineTool` 注册工具 |
-| pnpm | DSH 插件管理器内部用它装依赖，DSH 自带运行时通常已包含 |
+| DSH 桌面版 0.2.1-rc.1 以上 | 图形界面即可，不需要命令行工具 |
 
-其他安装方式（本地目录 / tarball / npm）见 [INSTALL.md](INSTALL.md)。
+卸载：**设置** → **插件** → 找到本插件 → 卸载。
+
+更多安装方式（含开发者的 `dsh` CLI 命令）见 [INSTALL.md](INSTALL.md)。
 
 ---
 
